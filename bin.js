@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const git = require("degit")
 const path = require("path")
 const fs = require("fs")
