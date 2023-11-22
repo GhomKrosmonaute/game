@@ -1,0 +1,29 @@
+{
+  "name": "@ghom/create-game",
+  "version": "1.0.1",
+  "description": "Install the [@ghom/game](https://github.com/GhomKrosmonaute/game) boilerplate on your computer.",
+  "bin": {
+    "create-game": "./bin.js"
+  },
+  "keywords": [
+    "ghom",
+    "game",
+    "create",
+    "booyah",
+    "html5",
+    "game engine",
+    "boilerplate"
+  ],
+  "author": "ghom",
+  "prettier": {
+    "semi": false
+  },
+  "devDependencies": {
+    "degit": "^2.8.4",
+    "prettier": "^3.1.0"
+  },
+  "scripts": {
+    "format": "prettier --write bin.js",
+    "prepublishOnly": "npm run format"
+  }
+}
