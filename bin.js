@@ -27,14 +27,16 @@ const source = "GhomKrosmonaute/game"
 const emitter = git(source, { cache: false, force: true, verbose: true })
 
 emitter.on("info", (info) => console.log(info))
-
-try {
-  await emitter.clone(dir)
-  console.log("Successfully installed @ghom/game")
-} catch (err) {
-  console.log(err)
-  return process.exit(1)
-}
+;(async () => {
+  try {
+    await emitter.clone(dir)
+    console.log(`Successfully installed @ghom/game in ${dir}`)
+    process.exit(0)
+  } catch (err) {
+    console.log(err)
+    return process.exit(1)
+  }
+})()
 
 /**
  * todo:
@@ -43,5 +45,3 @@ try {
  *  - update html title
  *  - update demo
  */
-
-process.exit(0)
