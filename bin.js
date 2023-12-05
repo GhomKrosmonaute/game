@@ -37,7 +37,7 @@ emitter.on("info", (info) => console.log(info))
   }
 
   // install dependencies
-  exec(`cd ${dir} && npm install`, (err, stdout, stderr) => {
+  exec(`cd "${dir}" && npm install`, (err, stdout, stderr) => {
     if (err) {
       console.log(err)
       return process.exit(1)
