@@ -1,6 +1,6 @@
 {
   "name": "@ghom/create-game",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "Install the [@ghom/game](https://github.com/GhomKrosmonaute/game) boilerplate on your computer.",
   "bin": {
     "create-game": "./bin.js"

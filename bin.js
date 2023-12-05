@@ -3,6 +3,7 @@
 const git = require("degit")
 const path = require("path")
 const fs = require("fs")
+const exec = require("child_process").exec
 
 const [argDir, argForce] = process.argv.slice(2)
 
@@ -30,12 +31,22 @@ emitter.on("info", (info) => console.log(info))
 ;(async () => {
   try {
     await emitter.clone(dir)
-    console.log(`Successfully installed @ghom/game in ${dir}`)
-    process.exit(0)
   } catch (err) {
     console.log(err)
     return process.exit(1)
   }
+
+  // install dependencies
+  exec(`cd ${dir} && npm install`, (err, stdout, stderr) => {
+    if (err) {
+      console.log(err)
+      return process.exit(1)
+    }
+    console.log(stdout)
+    console.log(stderr)
+    console.log(`Successfully installed @ghom/game in ${dir}`)
+    process.exit(0)
+  })
 })()
 
 /**
